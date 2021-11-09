@@ -1,5 +1,7 @@
 package com.news.web;
 
+import com.news.config.auth.LoginUser;
+import com.news.config.auth.dto.SessionUser;
 import com.news.service.PostsService;
 import com.news.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -8,15 +10,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.servlet.http.HttpSession;
+
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
 
     private final PostsService postsService;
+    private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model, @LoginUser SessionUser user){
         model.addAttribute("posts", postsService.findAllDesc());
+        if(user!=null){
+            model.addAttribute("userName",user.getName());
+        }
         return  "index";
     }
 
