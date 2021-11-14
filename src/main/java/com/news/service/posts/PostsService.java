@@ -1,4 +1,4 @@
-package com.news.service;
+package com.news.service.posts;
 
 import com.news.domain.posts.Posts;
 import com.news.domain.posts.PostsRepository;

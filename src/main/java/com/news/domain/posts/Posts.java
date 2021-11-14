@@ -1,5 +1,6 @@
 package com.news.domain.posts;
 
+import com.news.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

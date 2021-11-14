@@ -22,13 +22,13 @@ var main = {
 
         $.ajax({
             type: 'POST',
-            url: '/api/v1/posts',
+            url: '/api/v1/my_posts',
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function() {
             alert('글이 등록되었습니다.');
-            window.location.href = '/';
+            window.location.href = '/my_posts';
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
@@ -43,13 +43,13 @@ var main = {
 
         $.ajax({
             type: 'PUT',
-            url: '/api/v1/posts/'+id,
+            url: '/api/v1/my_posts/'+id,
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function() {
             alert('글이 수정되었습니다.');
-            window.location.href = '/';
+            window.location.href = '/my_posts';
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
@@ -59,12 +59,12 @@ var main = {
 
         $.ajax({
             type: 'DELETE',
-            url: '/api/v1/posts/'+id,
+            url: '/api/v1/my_posts/'+id,
             dataType: 'json',
             contentType:'application/json; charset=utf-8'
         }).done(function() {
             alert('글이 삭제되었습니다.');
-            window.location.href = '/';
+            window.location.href = '/my_posts';
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });

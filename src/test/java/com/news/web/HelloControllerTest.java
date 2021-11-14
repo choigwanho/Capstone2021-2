@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 )
 public class HelloControllerTest {
     @Autowired //  스프링이 관리하는 Bean을 주입 받는다.
-    private MockMvc mvc; //스프링 MVS 테스트의 시작점
+    private MockMvc mvc; //스프링 MVC 테스트의 시작점
 
     @WithMockUser(roles="USER")
     @Test

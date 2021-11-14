@@ -1,11 +1,12 @@
 
 {{>layout/header}}
 
-<h1>스프링부트로 시작하는 웹 서비스 Ver.2</h1>
+<h1>News Service</h1>
 <div class="col-md-12">
     <div class="row">
         <div class="col-md-6">
-            <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+            <a href="/my_posts" role="button" class="btn btn-primary">나의 글</a>
+<!--            <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>-->
             {{#userName}}
                 Logged in as: <span id="user">{{userName}}</span>
                 <a href="/logout" class="btn btn-info active" role="button">Logout</a>
@@ -17,25 +18,52 @@
         </div>
     </div>
     <br>
-    <!-- 목록 출력 영역 -->
+<!--    &lt;!&ndash; 목록 출력 영역 &ndash;&gt;-->
+<!--    <table class="table table-horizontal table-bordered">-->
+<!--        <thead class="thead-strong">-->
+<!--        <tr>-->
+<!--            <th>게시글번호</th>-->
+<!--            <th>제목</th>-->
+<!--            <th>작성자</th>-->
+<!--            <th>최종수정일</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody id="tbody">-->
+<!--        {{#posts}}-->
+<!--            <tr>-->
+<!--                <td>{{id}}</td>-->
+<!--                <td><a href="/posts/update/{{id}}">{{title}}</a></td>-->
+<!--                <td>{{author}}</td>-->
+<!--                <td>{{modifiedDate}}</td>-->
+<!--            </tr>-->
+<!--        {{/posts}}-->
+<!--        </tbody>-->
+<!--    </table>-->
+    <!-- 기사 목록 출력 영역 -->
     <table class="table table-horizontal table-bordered">
         <thead class="thead-strong">
         <tr>
-            <th>게시글번호</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>최종수정일</th>
+            <th>기사번호</th>
+            <th>기사제목</th>
+            <th>URL</th>
+            <th>긍정:1 부정:0</th>
+            <th>언론사</th>
+            <th>작성일</th>
+            <th>카테고리</th>
         </tr>
         </thead>
         <tbody id="tbody">
-        {{#posts}}
+        {{#news}}
             <tr>
                 <td>{{id}}</td>
-                <td><a href="/posts/update/{{id}}">{{title}}</a></td>
-                <td>{{author}}</td>
-                <td>{{modifiedDate}}</td>
+                <td>{{title}}</td>
+                <td>{{url}}</td>
+                <td>{{pnLabel}}</td>
+                <td>{{press}}</td>
+                <td>{{date}}</td>
+                <td>{{cagegory}}</td>
             </tr>
-        {{/posts}}
+        {{/news}}
         </tbody>
     </table>
 </div>
