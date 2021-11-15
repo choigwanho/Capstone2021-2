@@ -1,28 +1,8 @@
 
 {{>layout/header}}
 
-<h1>News Service</h1>
+<h1>Search List</h1>
 <div class="col-md-12">
-    <div class="row">
-        <div class="col-md-6">
-            <a href="/posts" role="button" class="btn btn-primary">글 목록</a>
-            {{#userName}}
-                Logged in as: <span id="user">{{userName}}</span>
-                <a href="/logout" class="btn btn-info active" role="button">Logout</a>
-            {{/userName}}
-            {{^userName}}
-                <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
-                <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
-            {{/userName}}
-        </div>
-    </div>
-    <form action="/search" method="GET">
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <input name="keyword" type="text" placeholder="검색어를 입력해주세요">
-            <button class="btn btn-secondary">검색</button>
-        </div>
-    </form>
-    <br>
     <!-- 기사 목록 출력 영역 -->
     <table class="table table-horizontal table-bordered">
         <thead class="thead-strong">
@@ -37,7 +17,7 @@
         </tr>
         </thead>
         <tbody id="tbody">
-        {{#news}}
+        {{#newsSearchList}}
             <tr>
                 <td>{{id}}</td>
                 <td>{{title}}</td>
@@ -47,7 +27,7 @@
                 <td>{{date}}</td>
                 <td>{{cagegory}}</td>
             </tr>
-        {{/news}}
+        {{/newsSearchList}}
         </tbody>
     </table>
 
@@ -61,16 +41,15 @@
         </tr>
         </thead>
         <tbody id="tbody">
-            {{#companyList}}
+        {{#companySearchList}}
             <tr>
                 <td>{{id}}</td>
                 <td>{{name}}</td>
                 <td>{{info}}</td>
             </tr>
-            {{/companyList}}
+        {{/companySearchList}}
         </tbody>
     </table>
-
 </div>
 
 {{>layout/footer}}

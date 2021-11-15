@@ -21,4 +21,12 @@ public class NewsService {
                 .map(NewsListResponseDto::new)
                 .collect(Collectors.toList());
     }
+
+    @Transactional(readOnly = true)
+    public List<NewsListResponseDto> search(String keyword){
+        List<NewsListResponseDto> newsSearchList =newsRepository.findByTitleContaining(keyword).stream()
+                .map(NewsListResponseDto::new)
+                .collect(Collectors.toList());
+        return newsSearchList;
+    }
 }

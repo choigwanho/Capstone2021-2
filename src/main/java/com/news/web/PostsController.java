@@ -12,18 +12,18 @@ import javax.servlet.http.HttpSession;
 
 @RequiredArgsConstructor
 @Controller
-public class MyPostsController {
+public class PostsController {
 
     private final PostsService postsService;
     private final HttpSession httpSession;
 
 
-    @GetMapping("/my_posts/save")
+    @GetMapping("/posts/save")
     public String postsSave(){
         return  "posts-save";
     }
 
-    @GetMapping("/my_posts/update/{id}")
+    @GetMapping("/posts/update/{id}")
     public String postsUpdate(@PathVariable Long id, Model model) {
         PostsResponseDto dto = postsService.findById(id);
         model.addAttribute("post", dto);
