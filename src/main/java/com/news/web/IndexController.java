@@ -10,14 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.servlet.http.HttpSession;
-
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
 
     private final PostsService postsService;
-    private final HttpSession httpSession;
     private final NewsService newsService;
     private final CompanyService companyService;
 
@@ -40,7 +37,7 @@ public class IndexController {
     }
 
     @GetMapping("/posts")
-    public String myPosts(Model model, @LoginUser SessionUser user){
+    public String posts(Model model, @LoginUser SessionUser user){
 
         model.addAttribute("posts", postsService.findAllDesc());
         if(user!=null){

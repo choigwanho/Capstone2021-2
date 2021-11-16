@@ -6,7 +6,7 @@
     <div class="col-md-4">
         <form>
             <div class="form-group">
-                <label for="title">기사 번호</label>
+                <label for="id">기사 번호</label>
                 <input type="text" class="form-control" id="id" value="{{news.id}}" readonly>
             </div>
             <div class="form-group">
@@ -14,12 +14,12 @@
                 <input type="text" class="form-control" id="title" value="{{news.title}}" readonly>
             </div>
             <div class="form-group">
-                <label for="author"> 언론사 </label>
-                <input type="text" class="form-control" id="author" value="{{news.press}}" readonly>
+                <label for="press"> 언론사 </label>
+                <input type="text" class="form-control" id="press" value="{{news.press}}" readonly>
             </div>
             <div class="form-group">
-                <label for="content"> 기사 본문 </label>
-                <textarea class="form-control" id="content" >{{news.body}}</textarea>
+                <label for="body"> 기사 본문 </label>
+                <textarea class="form-control" id="body" >{{news.body}}</textarea>
             </div>
         </form>
         <a href="/" role="button" class="btn btn-secondary">홈으로 가기</a>
