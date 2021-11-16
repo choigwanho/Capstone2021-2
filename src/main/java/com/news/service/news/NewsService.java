@@ -1,7 +1,9 @@
 package com.news.service.news;
 
+import com.news.domain.news.News;
 import com.news.domain.news.NewsRepository;
 import com.news.web.dto.NewsListResponseDto;
+import com.news.web.dto.NewsResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,5 +30,13 @@ public class NewsService {
                 .map(NewsListResponseDto::new)
                 .collect(Collectors.toList());
         return newsSearchList;
+    }
+
+
+    @Transactional(readOnly = true)
+    public NewsResponseDto findById (Long id){
+        News entity =newsRepository.findById(id).orElseThrow(()->new IllegalArgumentException("해당 기사가 없습니다. id="+id));
+
+        return new NewsResponseDto(entity);
     }
 }
