@@ -1,9 +1,11 @@
 package com.news.web.dto;
 
 import com.news.domain.news.News;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 
+@Getter
 public class NewsResponseDto {
 
     private Long id;
@@ -13,6 +15,8 @@ public class NewsResponseDto {
     private String press;
     private LocalDateTime date;
     private String category;
+    private String body;
+    private String shortBody;
 
     public NewsResponseDto(News entity){
         this.id=entity.getId();
@@ -22,5 +26,7 @@ public class NewsResponseDto {
         this.press=entity.getPress();
         this.date=entity.getDate();
         this.category=entity.getCategory();
+        this.body=entity.getBody();
+        this.shortBody=entity.getShortBody();
     }
 }
