@@ -46,6 +46,14 @@ public class IndexController {
         return  "posts";
     }
 
+//    //회사 페이지, 회사 뉴스 목록, 키워드 , 긍부정 값.
+//    @GetMapping("/company")
+//    public String company(Model model){
+//
+//        model.addAttribute("posts", postsService.findAllDesc());
+//
+//        return  "company";
+//    }
 
 }
 
