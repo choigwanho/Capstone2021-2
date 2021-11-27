@@ -31,14 +31,18 @@
             position:static;
             width:180px;
             height:100px;
-            margin:50px;
+            margin:5px;
             border:solid 4px;
-            border-color:pink;
+            border-color:#004dff;
+            font-size:x-large;
         }
         .round{
             border:solid 4px;
-            border-color:pink;
+            border-color:#004dff;
             border-radius:18px
+        }
+        .center_text{
+            text-align:center;
         }
 
         input[id="menuicon"] {display:none;}
@@ -58,8 +62,6 @@
         a[class="logout nav-link active"]{left: 100%;}
     </style>
 </head>
-
-
 
 <div class="col-md-12">
     <div class="row" id="search">
@@ -100,7 +102,7 @@
 
     <br>
     <!-- 기사 목록 출력 영역 -->
-    <h4>최근 뉴스</h4>
+    <h2><b>최근 뉴스</b></h2>
     <table class="table table-horizontal table-bordered">
         <thead class="thead-strong">
         <tr>
@@ -128,98 +130,79 @@
         </tbody>
     </table>
 
-    <hr>
+    <br>
 
-    <h2>국내기업 TOP10</h2>
+    <h2 style="text-align: left"><b>국내기업 TOP N</b></h2>
+    <div style="color: #9d9d9d">관심있는 기업을 추가하고 한 눈에 확인할 수 있어요</div><br>
 
-    <div class="green_box round">[삼성전자]
-        <div class="feeling_div">
-            <div class="button-container like-container">
-                <button class="feeling_a"/>
-                    <i class="fa fa-heart-o">Like</i>
-            </div>
-        </div>
+    <div class="green_box round center_text"><b>[삼성전자]</b>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Use an element to toggle between a like/dislike icon -->
+        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
     </div>
 
-    <div class="green_box round">[현대자동차]
-        <div class="feeling_div">
-            <div class="button-container like-container"/>
-                <button class="feeling_a"/>
-                    <i class="fa fa-heart-o">Like</i>
-            </div>
-        </div>
+    <div class="green_box round center_text"><b>[현대자동차]</b>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Use an element to toggle between a like/dislike icon -->
+        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
     </div>
 
-    <div class="green_box round">[포스코]
-        <div class="feeling_div">
-            <div class="button-container like-container"/>
-                <button class="feeling_a"/>
-                    <i class="fa fa-heart-o">Like</i>
-            </div>
-        </div>
+    <div class="green_box round center_text"><b>[포스코]</b>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Use an element to toggle between a like/dislike icon -->
+        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
     </div>
 
-    <div class="green_box round">[LG전자]
-        <div class="feeling_div">
-            <div class="button-container like-container">
-                <button class="feeling_a">
-                    <i class="fa fa-heart-o">Like</i>
-            </div>
-        </div>
+    <div class="green_box round center_text"><b>[LG전자]</b>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Use an element to toggle between a like/dislike icon -->
+        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
     </div>
 
-    <div class="green_box round">[한국전력공사]
-        <div class="feeling_div">
-            <div class="button-container like-container">
-                <button class="feeling_a">
-                    <i class="fa fa-heart-o">Like</i>
-            </div>
-        </div>
+    <div class="green_box round center_text"><b>[한국전력공사]</b>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Use an element to toggle between a like/dislike icon -->
+        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
     </div>
 
-    <div class="green_box round">[기아자동차]
-        <div class="feeling_div">
-            <div class="button-container like-container">
-                <button class="feeling_a">
-                    <i class="fa fa-heart-o">Like</i>
-            </div>
-        </div>
+    <div class="green_box round center_text"><b>[기아자동차]</b>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Use an element to toggle between a like/dislike icon -->
+        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
     </div>
 
-    <div class="green_box round">[한화]
-        <div class="feeling_div">
-            <div class="button-container like-container">
-                <button class="feeling_a"/>
-                    <i class="fa fa-heart-o">Like</i>
-            </div>
-        </div>
+    <div class="green_box round center_text"><b>[한화]</b>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Use an element to toggle between a like/dislike icon -->
+        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
     </div>
 
-    <div class="green_box round">[한국산업은행]
-        <div class="feeling_div">
-            <div class="button-container like-container"/>
-                <button class="feeling_a">
-                    <i class="fa fa-heart-o">Like</i>
-            </div>
-        </div>
+    <div class="green_box round center_text"><b>[한국산업은행]</b>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Use an element to toggle between a like/dislike icon -->
+        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
     </div>
 
-    <div class="green_box round">[현대모비스]
-        <div class="feeling_div">
-            <div class="button-container like-container">
-                <button class="feeling_a"/>
-                    <i class="fa fa-heart-o">Like</i>
-            </div>
-        </div>
+    <div class="green_box round center_text"><b>[현대모비스]</b>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Use an element to toggle between a like/dislike icon -->
+        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
     </div>
 
-    <div class="green_box round">[GS칼텍스]
-        <div class="feeling_div">
-            <div class="button-container like-container">
-                <button class="feeling_a"/>
-                    <i class="fa fa-heart-o">Like</i>
-            </div>
-        </div>
+    <div class="green_box round center_text"><b>[GS칼텍스]</b>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Use an element to toggle between a like/dislike icon -->
+        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
     </div>
     <table class="table table-horizontal table-bordered">
         <thead class="thead-strong">
