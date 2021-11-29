@@ -1,15 +1,19 @@
 buildscript {
     ext{
         springBootVersion='2.1.7.RELEASE'
+        queryDslVersion = "4.4.0"
     }
     repositories {
         mavenCentral()
         jcenter()
+
     }
 dependencies {
     classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+
     }
 }
+
 apply plugin:'java'
 apply plugin:'eclipse'
 apply plugin:'org.springframework.boot'
@@ -25,7 +29,7 @@ repositories {
 
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
-    implementation('org.projectlombok:lombok:1.18.22')
+    implementation('org.projectlombok:lombok')
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation('com.h2database:h2')
     implementation('org.springframework.boot:spring-boot-starter-mustache')
@@ -35,4 +39,25 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     annotationProcessor ('org.projectlombok:lombok')
     testAnnotationProcessor ('org.projectlombok:lombok')
+
+    // QueryDSL
+    implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
+    annotationProcessor(
+            "javax.persistence:javax.persistence-api",
+            "javax.annotation:javax.annotation-api",
+            "com.querydsl:querydsl-apt:${queryDslVersion}:jpa")
 }
+
+// QueryDSL
+sourceSets {
+    main {
+        java {
+            srcDirs = ["$projectDir/src/main/java", "$projectDir/build/generated"]
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+

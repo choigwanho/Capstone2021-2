@@ -108,7 +108,6 @@
         <tr>
             <th>기사번호</th>
             <th>기사제목</th>
-            <th>URL</th>
             <th>긍정:1 부정:0</th>
             <th>언론사</th>
             <th>작성일</th>
@@ -120,7 +119,6 @@
             <tr>
                 <td>{{id}}</td>
                 <td><a href="{{url}}">{{title}}</a></td>
-                <td>{{url}}</td>
                 <td>{{pnLabel}}</td>
                 <td>{{press}}</td>
                 <td>{{date}}</td>
@@ -216,7 +214,7 @@
         {{#companyList}}
             <tr>
                 <td>{{id}}</td>
-                <td>{{name}}</td>
+                <td><a href="/company/{{name}}">{{name}}</a></td>
                 <td>{{info}}</td>
             </tr>
         {{/companyList}}
