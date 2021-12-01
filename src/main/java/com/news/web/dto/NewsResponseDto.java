@@ -17,6 +17,7 @@ public class NewsResponseDto {
     private String category;
     private String body;
     private String shortBody;
+    private String newsKeyword;
 
     public NewsResponseDto(News entity){
         this.id=entity.getId();
@@ -28,5 +29,6 @@ public class NewsResponseDto {
         this.category=entity.getCategory();
         this.body=entity.getBody();
         this.shortBody=entity.getShortBody();
+        this.newsKeyword=entity.getNewsKeyword();
     }
 }

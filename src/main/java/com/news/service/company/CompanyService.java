@@ -1,7 +1,9 @@
 package com.news.service.company;
 
+import com.news.domain.company.Company;
 import com.news.domain.company.CompanyRepository;
 import com.news.web.dto.CompanyListResponseDto;
+import com.news.web.dto.CompanyResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,5 +30,12 @@ public class CompanyService {
                 .map(CompanyListResponseDto::new)
                 .collect(Collectors.toList());
         return companySearchList;
+    }
+
+    @Transactional(readOnly = true)
+    public CompanyResponseDto findByName(String name){
+        Company entity =companyRepository.findByName(name);
+
+        return new CompanyResponseDto(entity);
     }
 }

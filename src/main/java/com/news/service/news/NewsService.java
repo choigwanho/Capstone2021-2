@@ -17,6 +17,7 @@ public class NewsService {
 
     public final NewsRepository newsRepository;
 
+
     @Transactional(readOnly = true)
     public List<NewsListResponseDto> findAllDesc(){
         return newsRepository.findALlDesc().stream()
@@ -39,4 +40,19 @@ public class NewsService {
 
         return new NewsResponseDto(entity);
     }
+
+    @Transactional(readOnly = true)
+    public List<NewsListResponseDto> findByCompanyName (String companyName){
+        List<NewsListResponseDto> CompanyNewsList =newsRepository.findByTitleContaining(companyName).stream()
+                .map(NewsListResponseDto::new)
+                .collect(Collectors.toList());
+
+        return CompanyNewsList;
+    }
+
+//    @Transactional(readOnly = true)
+//    public Integer findByCompanyNameAndPnLabel (String companyName,String pnLabel){
+//        Integer Pcount =newsRepository.findByTitleAndPnLabel(companyName, pnLabel);
+//        return Pcount;
+//    }
 }

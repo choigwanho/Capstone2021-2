@@ -44,12 +44,16 @@ public class News extends BaseTimeEntity {
     @Column(nullable = false)
     private String pnLabel;
 
+    //키워드
+    @Column(nullable = false)
+    private String newsKeyword;
+
     //기사 제공 날짜
     @Column(nullable=false)
     private LocalDateTime date;
 
     @Builder
-    public News(String title,String url, String pnLabel,String press,LocalDateTime date,String category){
+    public News(String title,String url, String pnLabel,String press,LocalDateTime date,String category,String newsKeyword){
         this.id=id;
         this.title=title;
         this.url=url;
@@ -57,5 +61,6 @@ public class News extends BaseTimeEntity {
         this.press=press;
         this.date=date;
         this.category=category;
+        this.newsKeyword=newsKeyword;
     }
 }

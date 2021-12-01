@@ -21,7 +21,7 @@
             margin-bottom: 10px;
         }
         #search{
-            background: #004dff;
+            background: #00ffbe;
         }
         #top{
             margin-top : 20px;
@@ -31,23 +31,30 @@
             position:static;
             width:180px;
             height:100px;
-            margin:5px;
+            /*margin:5px;*/
+            margin:8px;
             border:solid 4px;
-            border-color:#004dff;
-            font-size:x-large;
+            background: #e8e8e8;
+            /*font-size:medium;*/
+            font-size:large
         }
         .round{
             border:solid 4px;
-            border-color:#004dff;
+            border-color:#ffffff;
             border-radius:18px
         }
         .center_text{
             text-align:center;
         }
+        .heart {
+            font-size: 25px;
+            color:red;
+        }
+
 
         input[id="menuicon"] {display:none;}
         input[id="menuicon"] + label {display: block;margin: 30px;width: 30px;height: 30px;position: relative;cursor: pointer;}
-        input[id="menuicon"] + label span {display: block;position:absolute;width: 100%;height: 5px;border-radius: 30px;background: #000;transition: all .35s;}
+        input[id="menuicon"] + label span {display: block;position:absolute;width: 100%;height: 5px;border-radius: 30px;background: #ffffff;transition: all .35s;}
         input[id="menuicon"] + label span:nth-child(1) {top:0;}
         input[id="menuicon"] + label span:nth-child(2) {top:50%;transform: translateY(-50%);}
         input[id="menuicon"] + label span:nth-child(3) {bottom: 0;}
@@ -99,15 +106,15 @@
     </div>
 
     <br>
-
     <br>
     <!-- 기사 목록 출력 영역 -->
     <h2><b>최근 뉴스</b></h2>
     <table class="table table-horizontal table-bordered">
         <thead class="thead-strong">
-        <tr>
+        <tr style="background-color: #b5b5b5; margin-top:150px">
             <th>기사번호</th>
             <th>기사제목</th>
+            <th>뉴스키워드</th>
             <th>긍정:1 부정:0</th>
             <th>언론사</th>
             <th>작성일</th>
@@ -119,6 +126,7 @@
             <tr>
                 <td>{{id}}</td>
                 <td><a href="{{url}}">{{title}}</a></td>
+                <td>{{newsKeyword}}</td>
                 <td>{{pnLabel}}</td>
                 <td>{{press}}</td>
                 <td>{{date}}</td>
@@ -129,82 +137,11 @@
     </table>
 
     <br>
-
-    <h2 style="text-align: left"><b>국내기업 TOP N</b></h2>
-    <div style="color: #9d9d9d">관심있는 기업을 추가하고 한 눈에 확인할 수 있어요</div><br>
-
-    <div class="green_box round center_text"><b>[삼성전자]</b>
-        <br>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Use an element to toggle between a like/dislike icon -->
-        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
-    </div>
-
-    <div class="green_box round center_text"><b>[현대자동차]</b>
-        <br>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Use an element to toggle between a like/dislike icon -->
-        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
-    </div>
-
-    <div class="green_box round center_text"><b>[포스코]</b>
-        <br>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Use an element to toggle between a like/dislike icon -->
-        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
-    </div>
-
-    <div class="green_box round center_text"><b>[LG전자]</b>
-        <br>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Use an element to toggle between a like/dislike icon -->
-        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
-    </div>
-
-    <div class="green_box round center_text"><b>[한국전력공사]</b>
-        <br>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Use an element to toggle between a like/dislike icon -->
-        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
-    </div>
-
-    <div class="green_box round center_text"><b>[기아자동차]</b>
-        <br>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Use an element to toggle between a like/dislike icon -->
-        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
-    </div>
-
-    <div class="green_box round center_text"><b>[한화]</b>
-        <br>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Use an element to toggle between a like/dislike icon -->
-        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
-    </div>
-
-    <div class="green_box round center_text"><b>[한국산업은행]</b>
-        <br>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Use an element to toggle between a like/dislike icon -->
-        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
-    </div>
-
-    <div class="green_box round center_text"><b>[현대모비스]</b>
-        <br>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Use an element to toggle between a like/dislike icon -->
-        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
-    </div>
-
-    <div class="green_box round center_text"><b>[GS칼텍스]</b>
-        <br>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Use an element to toggle between a like/dislike icon -->
-        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>
-    </div>
+    <br>
+    <h2><b>회사 목록</b></h2>
     <table class="table table-horizontal table-bordered">
         <thead class="thead-strong">
-        <tr>
+        <tr style="background-color: #b5b5b5">
             <th>회사번호</th>
             <th>회사명</th>
             <th>회사정보</th>
@@ -220,6 +157,95 @@
         {{/companyList}}
         </tbody>
     </table>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2 style="text-align: left"><b>국내기업 TOP 10</b></h2>
+    <div style="color: #9d9d9d">2021년 청년 취준생 상반기 입사희망 기업</div><br>
+
+    <div class="green_box round center_text feeling_div button-container feeling_a"><b>카카오</b>
+        <br>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <i onclick="myFunction(this)" class="heart fa fa-heart-o"></i>
+    </div>
+
+    <div class="green_box round center_text"><b>삼성전자</b>
+        <br>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <i onclick="myFunction(this)" class="heart fa fa-heart-o"></i>
+    </div>
+
+
+    <div class="green_box round center_text"><b>현대자동차</b>
+        <br>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <i onclick="myFunction(this)" class="heart fa fa-heart-o"></i>
+    </div>
+
+    <div class="green_box round center_text"><b>SK</b>
+        <br>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <i onclick="myFunction(this)" class="heart fa fa-heart-o"></i>
+    </div>
+
+    <div class="green_box round center_text"><b>LG전자</b>
+        <br>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <i onclick="myFunction(this)" class="heart fa fa-heart-o"></i>
+    </div>
+
+    <div class="green_box round center_text"><b>기아</b>
+        <br>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <i onclick="myFunction(this)" class="heart fa fa-heart-o"></i>
+    </div>
+
+    <div class="green_box round center_text"><b>한국전력공사</b>
+        <br>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <i onclick="myFunction(this)" class="heart fa fa-heart-o"></i>
+    </div>
+
+    <div class="green_box round center_text"><b>포스코</b>
+        <br>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <i onclick="myFunction(this)" class="heart fa fa-heart-o"></i>
+    </div>
+
+    <div class="green_box round center_text"><b>한화</b>
+        <br>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <i onclick="myFunction(this)" class="heart fa fa-heart-o"></i>
+    </div>
+
+    <div class="green_box round center_text"><b>현대모비스</b>
+        <br>
+        <br>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <i onclick="myFunction(this)" class="heart fa fa-heart-o"></i>
+    </div>
+
+    <!--    <div class="green_box round center_text"><b>[호텔신라]</b>-->
+    <!--        <br>-->
+    <!--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+    <!--        &lt;!&ndash; Use an element to toggle between a like/dislike icon &ndash;&gt;-->
+    <!--        <i onclick="myFunction(this)" class="fa fa-thumbs-up fa-2x"></i>-->
+    <!--    </div>-->
 
 </div>
 

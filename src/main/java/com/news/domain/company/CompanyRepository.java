@@ -11,4 +11,7 @@ public interface CompanyRepository extends JpaRepository<Company,Long> {
     List<Company> findAllDesc();
 
     List<Company> findByNameContaining(String keyword);
+
+    Company findByName(String name);
+
 }

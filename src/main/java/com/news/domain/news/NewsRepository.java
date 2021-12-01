@@ -5,10 +5,13 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface NewsRepository extends JpaRepository<News, Long> {
+public interface NewsRepository extends JpaRepository<News, Long>{//,NewsRepositoryCustom {
 
     @Query("SELECT n FROM News n ORDER BY n.id DESC")
     List<News> findALlDesc();
 
     List<News> findByTitleContaining(String keyword);
+
+//    Integer  findByTitleAndPnLabel(String keyword, String pnLabel);
+
 }

@@ -15,14 +15,14 @@
             margin-bottom: 20px;
         }
         #search{
-            background: #004dff;
+            background: #00ffbe;
         }
         #top {
             margin-top: 20px;
         }
         input[id="menuicon"] {display:none;}
         input[id="menuicon"] + label {display: block;margin: 30px;width: 30px;height: 30px;position: relative;cursor: pointer;}
-        input[id="menuicon"] + label span {display: block;position:absolute;width: 100%;height: 5px;border-radius: 30px;background: #000;transition: all .35s;}
+        input[id="menuicon"] + label span {display: block;position:absolute;width: 100%;height: 5px;border-radius: 30px;background: #ffffff;transition: all .35s;}
         input[id="menuicon"] + label span:nth-child(1) {top:0;}
         input[id="menuicon"] + label span:nth-child(2) {top:50%;transform: translateY(-50%);}
         input[id="menuicon"] + label span:nth-child(3) {bottom: 0;}
@@ -61,11 +61,12 @@
 </div>
 <div class="col-md-12">
     <!-- 기사 목록 출력 영역 -->
-    <table class="table table-horizontal table-bordered">
+    <table class="table table-horizontal table-bordered" style="margin-top:150px">
         <thead class="thead-strong">
-        <tr>
+        <tr style="background-color: #b5b5b5;">
             <th>기사번호</th>
             <th>기사제목</th>
+            <th>뉴스키워드</th>
             <th>긍정:1 부정:0</th>
             <th>언론사</th>
             <th>작성일</th>
@@ -77,6 +78,7 @@
             <tr>
                 <td>{{id}}</td>
                 <td><a href="/news/{{id}}">{{title}}</a></td>
+                <td>{{newsKeyword}}</td>
                 <td>{{pnLabel}}</td>
                 <td>{{press}}</td>
                 <td>{{date}}</td>
@@ -89,7 +91,7 @@
     <!-- 회사 목록 출력 영역 -->
     <table class="table table-horizontal table-bordered">
         <thead class="thead-strong">
-        <tr>
+        <tr style="background-color: #b5b5b5;">
             <th>회사번호</th>
             <th>회사명</th>
             <th>회사정보</th>
@@ -99,7 +101,7 @@
         {{#companySearchList}}
             <tr>
                 <td>{{id}}</td>
-                <td>{{name}}</td>
+                <td><a href="/company/{{name}}">{{name}}</a></td>
                 <td>{{info}}</td>
             </tr>
         {{/companySearchList}}

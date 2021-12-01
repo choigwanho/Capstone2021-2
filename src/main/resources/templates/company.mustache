@@ -15,7 +15,7 @@
             margin-bottom: 20px;
         }
         #search{
-            background: #004dff;
+            background: #00ffbe;
         }
         #top {
             margin-top: 20px;
@@ -42,9 +42,9 @@
         .box-left {
             flex: 1;
         }
-        .box-center {
-            flex: 1;
-        }
+        /*.box-center {*/
+        /*    flex: 1;*/
+        /*}*/
         .box-right {
             flex: 1;
         }
@@ -76,13 +76,13 @@
 <div id="container">
     <div class="box-left" style="margin-left: 50px;">
         <h4>
-            <br>삼성전자<br>
+            <br>{{company.name}}<br>
         </h4>
         <hr style="width: 70%;">
-        제무정보/ 시장정보
+        산업: {{company.info}}
     </div>
 
-    <div class="box-center">
+    <div class="box-right">
         <br><br>
         <head>
             <meta charset="utf-8" />
@@ -103,8 +103,8 @@
 
         <script>
             var xValues = ["긍정","부정"];
-            var yValues = [100, 60];
-            var barColors = ["blue","red"];
+            var yValues = [{{PositiveCount}}, 100-{{PositiveCount}}];
+            var barColors = ["#82c2ff","#ff6060"];
 
             new Chart("myChart", {
                 type: "bar",
@@ -135,80 +135,19 @@
         </script>
         </body>
     </div>
-
-    <div class="box-right">
-        <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-
-            <link rel="stylesheet" href=
-                    "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
-            <script src=
-                            "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-            </script>
-
-            <script src=
-                            "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
-            </script>
-
-            <script src=
-                            "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
-            </script>
-        </head>
-
-        <body>
-        <div class="container">
-
-            <h4 style="text-align:center">
-                <br>
-                <b>이슈키워드</b>
-            </h4>
-
-            <!-- Bootstrap table class -->
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col"></td>
-                    <th scope="col">키워드</td>
-                </tr>
-                </thead>
-
-                <tbody>
-                <tr>
-                    <th scope="row">1</td>
-                    <td>z플립3</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</td>
-                    <td>z폴드3</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</td>
-                    <td>이재용</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</td>
-                    <td>갤럭시22</td>
-                </tr>
-                <tr>
-                    <th scope="row">5</td>
-                    <td>삼성전자 주가</td>
-                </tr>
-
-
-                </tbody>
-            </table>
-        </div>
-        </body>
-    </div>
+    <!--    <img src="example.PNG" width="300" height="350" alt="dog" class="box-right">-->
+    <!--    <div class="box-right" style="margin-top: 10px; margin-left: 20px">-->
+    <!--        <a>-->
+    <!--            -->
+    <!--        </a>-->
+    <!--    </div>-->
 </div>
 
 <div class="col-md-12">
     <!-- 기사 목록 출력 영역 -->
-    <table class="table table-horizontal table-bordered">
+    <table class="table table-horizontal table-bordered" style="margin-top: 50px">
         <thead class="thead-strong">
-        <tr>
+        <tr style="background-color: #b5b5b5">
             <th>기사번호</th>
             <th>기사제목</th>
             <th>URL</th>
@@ -219,7 +158,7 @@
         </tr>
         </thead>
         <tbody id="tbody">
-        {{#newsSearchList}}
+        {{#CompanyNewsList}}
             <tr>
                 <td>{{id}}</td>
                 <td><a href="{{url}}">{{title}}</a></td>
@@ -229,33 +168,8 @@
                 <td>{{date}}</td>
                 <td>{{category}}</td>
             </tr>
-        {{/newsSearchList}}
+        {{/CompanyNewsList}}
         </tbody>
     </table>
 </div>
-
-<!--<div>-->
-<!--    &lt;!&ndash; 회사 목록 출력 영역 &ndash;&gt;-->
-<!--    <table class="table table-horizontal table-bordered">-->
-<!--        <thead class="thead-strong">-->
-<!--        <tr>-->
-<!--            <th>회사번호</th>-->
-<!--            <th>회사명</th>-->
-<!--            <th>회사정보</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody id="tbody">-->
-        <!--        {{#companySearchList}}-->
-<!--            <tr>-->
-<!--                <td>{{id}}</td>-->
-<!--                <td>{{name}}</td>-->
-<!--                <td>{{info}}</td>-->
-<!--            </tr>-->
-        <!--        {{/companySearchList}}-->
-<!--        </tbody>-->
-<!--    </table>-->
-<!--</div>-->
-
-
-
 {{>layout/footer}}

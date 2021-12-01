@@ -14,6 +14,7 @@ public class NewsListResponseDto {
     private String press;
     private LocalDateTime date;
     private String category;
+    private String newsKeyword;
 
     public NewsListResponseDto(News entity){
         this.id=entity.getId();
@@ -23,6 +24,7 @@ public class NewsListResponseDto {
         this.press=entity.getPress();
         this.date=entity.getDate();
         this.category=entity.getCategory();
+        this.newsKeyword=entity.getNewsKeyword();
     }
 }
 
