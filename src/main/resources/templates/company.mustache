@@ -99,11 +99,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
         <body>
 
+        <div id="container">
         <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-
+        </div>
         <script>
             var xValues = ["긍정","부정"];
-            var yValues = [{{PositiveCount}}, 100-{{PositiveCount}}];
+            var yValues = [{{PositiveRate}},{{NegativeRate}}];
             var barColors = ["#82c2ff","#ff6060"];
 
             new Chart("myChart", {
@@ -121,7 +122,9 @@
                         yAxes: [{
                             display: true,
                             ticks: {
-                                beginAtZero: true
+                                beginAtZero: true,
+                                steps:0.2,
+                                max:1
                             }
                         }]
                     },
@@ -149,24 +152,26 @@
         <thead class="thead-strong">
         <tr style="background-color: #b5b5b5">
             <th>기사번호</th>
+            <th>카테고리</th>
             <th>기사제목</th>
-            <th>URL</th>
+            <th>본문요약</th>
+            <th>뉴스키워드</th>
             <th>긍정:1 부정:0</th>
             <th>언론사</th>
             <th>작성일</th>
-            <th>카테고리</th>
         </tr>
         </thead>
         <tbody id="tbody">
         {{#CompanyNewsList}}
             <tr>
                 <td>{{id}}</td>
+                <td>{{category}}</td>
                 <td><a href="{{url}}">{{title}}</a></td>
-                <td>{{url}}</td>
+                <td>{{shortBody}}</td>
+                <td>{{newsKeyword}}</td>
                 <td>{{pnLabel}}</td>
                 <td>{{press}}</td>
                 <td>{{date}}</td>
-                <td>{{category}}</td>
             </tr>
         {{/CompanyNewsList}}
         </tbody>

@@ -15,6 +15,7 @@ public class NewsListResponseDto {
     private LocalDateTime date;
     private String category;
     private String newsKeyword;
+    private String shortBody;
 
     public NewsListResponseDto(News entity){
         this.id=entity.getId();
@@ -25,6 +26,7 @@ public class NewsListResponseDto {
         this.date=entity.getDate();
         this.category=entity.getCategory();
         this.newsKeyword=entity.getNewsKeyword();
+        this.shortBody=entity.getShortBody();
     }
 }
 

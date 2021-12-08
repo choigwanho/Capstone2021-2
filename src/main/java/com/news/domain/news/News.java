@@ -17,11 +17,11 @@ public class News extends BaseTimeEntity {
     private Long id;
 
     //기사 제목
-    @Column(length=500,nullable=false)
+    @Column(length=50000,nullable=false)
     private String title;
 
     //기사 본문
-    @Column(nullable = false)
+    @Column(length=50000,nullable = false)
     private String body;
 
     //기사 url
@@ -29,7 +29,7 @@ public class News extends BaseTimeEntity {
     private String url;
 
     //기사 본문요약
-    @Column(nullable = false)
+    @Column(length=50000,nullable = false)
     private String shortBody;
 
     //기사 제공 언론사
@@ -53,7 +53,7 @@ public class News extends BaseTimeEntity {
     private LocalDateTime date;
 
     @Builder
-    public News(String title,String url, String pnLabel,String press,LocalDateTime date,String category,String newsKeyword){
+    public News(String title,String url, String pnLabel,String press,LocalDateTime date,String category,String newsKeyword,String shortBody){
         this.id=id;
         this.title=title;
         this.url=url;
@@ -62,5 +62,6 @@ public class News extends BaseTimeEntity {
         this.date=date;
         this.category=category;
         this.newsKeyword=newsKeyword;
+        this.shortBody=shortBody;
     }
 }

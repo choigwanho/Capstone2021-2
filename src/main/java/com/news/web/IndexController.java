@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Controller
@@ -56,7 +57,25 @@ public class IndexController {
     public String company(@PathVariable("name") String name, Model model){
         List<NewsListResponseDto> CompanyNewsList = newsService.findByCompanyName(name);
         model.addAttribute("CompanyNewsList",CompanyNewsList);
-        model.addAttribute("PositiveCount", Collections.frequency(CompanyNewsList,"1"));
+
+        List<String> pnLabelList = CompanyNewsList.stream()
+                .map(NewsListResponseDto::getPnLabel)
+                .collect(Collectors.toList());
+        System.out.println("pnLabelList:"+pnLabelList);
+
+        float positiveCount=Collections.frequency(pnLabelList,"1");
+//        Integer negativeCount=Collections.frequency(pnLabelList,0);
+        System.out.println("positiveCount:" + positiveCount);
+        float pnListSize=pnLabelList.size();
+        System.out.println("pnListSize:" + pnListSize);
+        float positiveRate= positiveCount/pnListSize;
+        float negativeRate= 1-positiveRate;
+        System.out.println("positiveRate:" +positiveRate);
+        System.out.println("negativeRate"+negativeRate);
+
+        model.addAttribute("PositiveRate",positiveRate );
+        model.addAttribute("NegativeRate",negativeRate );
+
         model.addAttribute("company",companyService.findByName(name));
         return  "company";
     }

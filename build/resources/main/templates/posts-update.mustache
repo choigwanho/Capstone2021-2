@@ -1,31 +1,131 @@
 {{>layout/header}}
 
-<h1>게시글 수정</h1>
+
+<head>
+    <style>
+        h3{
+            position: absolute;
+            color: white;
+            float: right;
+            text-align: right;
+            left: 75%;
+        }
+
+        #search{
+            background: #00ffbe;
+        }
+        #top {
+            margin-top: 20px;
+        }
+        #container {
+            display: flex;
+        }
+        .box-left {
+            flex: 1;
+        }
+        .box-center {
+            flex: 3;
+        }
+        .box-right {
+            flex: 1;
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input[id="menuicon"] {display:none;}
+        input[id="menuicon"] + label {display: block;margin: 30px;width: 30px;height: 30px;position: relative;cursor: pointer;}
+        input[id="menuicon"] + label span {display: block;position:absolute;width: 100%;height: 5px;border-radius: 30px;background: #ffffff;transition: all .35s;}
+        input[id="menuicon"] + label span:nth-child(1) {top:0;}
+        input[id="menuicon"] + label span:nth-child(2) {top:50%;transform: translateY(-50%);}
+        input[id="menuicon"] + label span:nth-child(3) {bottom: 0;}
+        input[id="menuicon"]:checked + label {z-index:2;}
+        input[id="menuicon"]:checked + label span:nth-child(1) {top:50%;transform: translateY(-50%) rotate(45deg);}
+        input[id="menuicon"]:checked + label span:nth-child(2) {opacity: 0;}
+        input[id="menuicon"]:checked + label span:nth-child(3) {bottom:50%; transform: translateY(50%) rotate(-45deg);}
+
+        div[class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"] {width: 300px; height: 100%; background: #222222; position: fixed;top:0;left: -300px;z-index: 1;transition: all .35s;}
+        input[id="menuicon"]:checked + label + div{left: 0;}
+
+    </style>
+</head>
 
 <div class="col-md-12">
-    <div class="col-md-4">
-        <form>
-            <div class="form-group">
-                <label for="title">글 번호</label>
-                <input type="text" class="form-control" id="id" value="{{post.id}}" readonly>
-            </div>
-            <div class="form-group">
-                <label for="title">제목</label>
-                <input type="text" class="form-control" id="title" value="{{post.title}}">
-            </div>
-            <div class="form-group">
-                <label for="author"> 작성자 </label>
-                <input type="text" class="form-control" id="author" value="{{post.author}}" readonly>
-            </div>
-            <div class="form-group">
-                <label for="content"> 내용 </label>
-                <textarea class="form-control" id="content">{{post.content}}</textarea>
-            </div>
-        </form>
-        <a href="/posts" role="button" class="btn btn-secondary">취소</a>
-        <button type="button" class="btn btn-primary" id="btn-update">수정 완료</button>
-        <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
+
+    <div class="row" id="search">
+        <input type="checkbox" id="menuicon">
+        <label for="menuicon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+            <br><br><br><br><br><br>
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+                <div class="col-md-6">
+                    {{#userName}}
+                        <hr>
+                        <span id="user" class="fs-4">{{userName}}</span>
+                        <a href="#"></a>
+                        <hr style="border:3px; color:#ffffff;">
+                        <a href="/posts/save" role="button" class="nav-link active">글 등록</a>
+                        <a href="/logout" class="nav-link active" role="button">Logout</a>
+                    {{/userName}}
+
+                </div>
+                <a href="/" role="button" class="nav-link active">홈으로 가기</a>
+                <hr>
+
+            </a>
+        </div>
+        <h3 class="col-lg-3" id="top">News Service</h3>
     </div>
-</div>
+    <br>
+    <div class="col-md-8">
+        <div>
+            <h4 style="text-align: center;margin-left: 350px">&lt;<b>게시물 수정</b>&gt;</h4>
+            <form style="margin-left: 350px;">
+                <div class="form-group">
+                    <label for="title"><b>글 번호</b></label>
+                    <br>
+                    <br>
+                    <input type="text" class="form-control" id="id" value="{{post.id}}" readonly>
+                    <br>
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="title"><b>제목</b></label>
+                    <br>
+                    <br>
+                    <input type="text" class="form-control" id="title" value="{{post.title}}">
+                    <br>
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="author"><b>작성자</b></label>
+                    <br>
+                    <br>
+                    <input type="text" class="form-control" id="author" value="{{post.author}}" readonly>
+                    <br>
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="content"><b>내용</b></label>
+                    <br>
+                    <br>
+                    <textarea class="form-control" id="content">{{post.content}}</textarea>
+                    <br>
+                    <br>
+                </div>
+            </form>
+            <br>
+            <br>
+            <a href="/posts" role="button" class="btn btn-secondary" style="text-align:center; margin-left: 350px">취소</a>
+            <button type="button" class="btn btn-primary" id="btn-update">수정 완료</button>
+            <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
+        </div>
+    </div>
 
 {{>layout/footer}}

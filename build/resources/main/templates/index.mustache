@@ -113,24 +113,24 @@
         <thead class="thead-strong">
         <tr style="background-color: #b5b5b5; margin-top:150px">
             <th>기사번호</th>
+            <th>카테고리</th>
             <th>기사제목</th>
             <th>뉴스키워드</th>
             <th>긍정:1 부정:0</th>
             <th>언론사</th>
             <th>작성일</th>
-            <th>카테고리</th>
         </tr>
         </thead>
         <tbody id="tbody">
         {{#news}}
             <tr>
                 <td>{{id}}</td>
+                <td>{{category}}</td>
                 <td><a href="{{url}}">{{title}}</a></td>
                 <td>{{newsKeyword}}</td>
                 <td>{{pnLabel}}</td>
                 <td>{{press}}</td>
                 <td>{{date}}</td>
-                <td>{{category}}</td>
             </tr>
         {{/news}}
         </tbody>
