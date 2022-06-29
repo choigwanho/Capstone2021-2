@@ -5,4 +5,4 @@
 - 머스테치
 
 ## 크롤링 및 데이터 처리
-- https://github.com/dev-choee/capstone.git
+- https://github.com/banghoon/capstone.git
